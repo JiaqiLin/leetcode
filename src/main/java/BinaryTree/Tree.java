@@ -24,6 +24,7 @@ public class Tree {
                 treeDeque.addLast(parent.left);
                 treeDeque.addLast(parent.right);
             }
+            index+=2;
 
         }
     }
@@ -40,5 +41,30 @@ public class Tree {
             node.right = new TreeNode(right);
         }
 
+    }
+
+
+
+
+    public void createTree2(Integer[] treeNodes){
+        Deque<TreeNode> queue = new LinkedList<>();
+
+        if(treeNodes.length>0){
+            root = new TreeNode(treeNodes[0]);
+            queue.add(root);
+        }
+        int index = 1;
+        while(!queue.isEmpty()){
+            TreeNode currentNode = queue.removeFirst();
+            if(index<treeNodes.length&&treeNodes[index]!=null){
+                currentNode.left = new TreeNode(treeNodes[index]);
+                queue.add(currentNode.left);
+            }
+            if(index+1<treeNodes.length&&treeNodes[index+1]!=null){
+                currentNode.right = new TreeNode(treeNodes[index+1]);
+                queue.add(currentNode.right);
+            }
+            index+=2;
+        }
     }
 }

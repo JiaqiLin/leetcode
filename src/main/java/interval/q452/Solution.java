@@ -8,6 +8,7 @@ class Solution {
         //按照右端升序排序
 //        Arrays.sort(points,(a, b)->a[1]-b[1]);
         Arrays.sort(points, new Comparator<int[]>() {
+            @Override
             public int compare(int[] point1, int[] point2) {
                 if (point1[1] > point2[1]) {
                     return 1;
